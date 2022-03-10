@@ -4,24 +4,24 @@
 // File name: projects/01/And6Way.hdl
 
 /**
- * 16-bit multiplexor: 
+ * : 
  * for i = 0..15 out[i] = a[i] if sel == 0 
  *                        b[i] if sel == 1
  */
 
 CHIP And16Way {
-    IN a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, sel;
+    IN in[0];
     OUT out;
 
     PARTS:
-    And(a = a, b = b, out = and1);
-    And(a = c, b = d, out = and2);
-    And(a = e, b = f, out = and3);
-    And(a = g, b = h, out = and4);
-    And(a = i, b = j, out = and5);
-    And(a = k, b = l, out = and6);
-    And(a = m, b = n, out = and7);
-    And(a = o, b = p, out = and8);
+    And(a = in[1], b = in[2], out = and1);
+    And(a = in[3], b = in[4], out = and2);
+    And(a = in[5], b = in[6], out = and3);
+    And(a = in[7], b =in[8], out = and4);
+    And(a = in[9], b = in[10], out = and5);
+    And(a = in[11], b = in[12], out = and6);
+    And(a = in[13], b = in[14], out = and7);
+    And(a = in[15], b = in[16], out = and8);
 
     And(a = and1, b = and2, out = and9);
     And(a = and3, b = and4, out = and10);
