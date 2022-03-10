@@ -1,0 +1,36 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/01/And6Way.hdl
+
+/**
+ * 16-bit multiplexor: 
+ * for i = 0..15 out[i] = a[i] if sel == 0 
+ *                        b[i] if sel == 1
+ */
+
+CHIP And16Way {
+    IN a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, sel;
+    OUT out;
+
+    PARTS:
+    And(a = a, b = b, out = and1);
+    And(a = c, b = d, out = and2);
+    And(a = e, b = f, out = and3);
+    And(a = g, b = h, out = and4);
+    And(a = i, b = j, out = and5);
+    And(a = k, b = l, out = and6);
+    And(a = m, b = n, out = and7);
+    And(a = o, b = p, out = and8);
+
+    And(a = and1, b = and2, out = and9);
+    And(a = and3, b = and4, out = and10);
+    And(a = and5, b = and6, out = and11);
+    And(a = and7, b = and8, out = and12);
+
+    And(a = and9, b = and10, out = and13);
+    And(a = and11, b = and12, out = and14);
+
+    And(a = and13, b = and14, out = out);
+
+}
